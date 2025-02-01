@@ -34,35 +34,37 @@ const FebruaryTimetable = () => {
   ];
 
   return (
-    <div className="flex justify-center  bg-white p-4">
-      <table className="w-4/5 border-collapse bg-white shadow-lg">
-        <thead>
-          <tr className="bg-blue-500 text-white ">
-            <th className="p-3 border">Date</th>
-            <th className="p-3 border">05:00 - 09:00</th>
-            <th className="p-3 border">09:00 - 13:00</th>
-            <th className="p-3 border">13:00 - 17:00</th>
-            <th className="p-3 border">17:00 - 21:00</th>
-            <th className="p-3 border">21:00 - 01:00</th>
-            <th className="p-3 border">01:00 - 05:00</th>
-          </tr>
-        </thead>
-        <tbody>
-          {schedule.map((day, index) => (
-            <tr
-              key={index}
-              className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
-            >
-              <td className="p-3 border">{day.date}</td>
-              {day.slots.map((slot, i) => (
-                <td key={i} className="p-3 border">
-                  {slot}
-                </td>
-              ))}
+    <div className="flex justify-center min-w-screen bg-white p-4">
+      <div className="overflow-x-auto w-full">
+        <table className="w-full border-collapse bg-white shadow-lg">
+          <thead>
+            <tr className="bg-blue-500 text-white">
+              <th className="p-3 border">Date</th>
+              <th className="p-3 border">05:00 - 09:00</th>
+              <th className="p-3 border">09:00 - 13:00</th>
+              <th className="p-3 border">13:00 - 17:00</th>
+              <th className="p-3 border">17:00 - 21:00</th>
+              <th className="p-3 border">21:00 - 01:00</th>
+              <th className="p-3 border">01:00 - 05:00</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {schedule.map((day, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+              >
+                <td className="p-3 border">{day.date}</td>
+                {day.slots.map((slot, i) => (
+                  <td key={i} className="p-3 border">
+                    {slot}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
